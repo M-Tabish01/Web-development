@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        main {
+            font-family: sans-serif;
+            border: 2px solid black;
+            display: grid;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+
+            grid-template-areas: "ue ue ue "
+                "English germen italian"
+                "Espanol francis portugal"
+                "japanese korean chinese"
+                "Traditional_chinese Traditional_chinese Traditional_chinese ";
+        }
+
+        .ultra-edit {
+            grid-column: auto;
+            border-radius: 3px;
+            grid-area: ue;
+            background-color: rgb(224, 224, 0);
+            width: 50px;
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: 900;
+            font-family: sans-serif;
+            font-style: italic;
+            font-size: 22px;
+        }
+
+        .download {
+            font-size: 19px;
+            /* padding: 20px; */
+            grid-area: ue;
+            margin: 0px 0px 0px 75px;
+
+        }
+
+        .download span {
+            font-size: 11px;
+        }
+
+        .english {
+            grid-area: English;
+        }
+
+        .germen {
+            grid-area: germen;
+        }
+
+        .italian {
+            grid-area: italian;
+        }
+
+        .Espanol {
+            grid-area: Espanol;
+        }
+
+        .francis {
+            grid-area: francis;
+        }
+
+        .portugal {
+            grid-area: portugal;
+        }
+
+        .japanese {
+            grid-area: japanese;
+        }
+
+        .korean {
+            grid-area: korean;
+        }
+
+        .chinese {
+            grid-area: chinese;
+        }
+
+        .Traditional_chinese {
+            grid-area: Traditional_chinese;
+        }
+
+        .inner_box {
+            border-radius: 10px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            text-align: center;
+            /* border: 2px solid black; */
+            width: 220px;
+            background-color: #0000000f;
+            height: 105px;
+        }
+
+        .inner_box button {
+            /* width: 80px; */
+            font-size: 11px;
+        }
+
+        .btn-group {
+            display: flex;
+            /* justify-content: center; */
+            gap: 5px;
+            /* padding: 10px; */
+
+        }
+
+        .btn-group button {
+            color: white;
+            height: 30px;
+            border: 0px;
+            width: 110px;
+            border-radius: 4px;
+        }
+
+        .main_language {
+            font-size: 11px;
+        }
+
+        .btn-group button:first-child {
+            background-color: rgb(51 182 227);
+        }
+
+        .btn-group button:nth-child(2) {
+            background-color: #4dcf4d;
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <div class="ultra-edit">UE</div>
+        <div class="download">Download Ultra Edit <span>v2023.1(released 08/16/2023) | Hotfix</span></div>
+        <div class="english inner_box">English
+            <div class="btn-group">
+                <button>Download 32 bit</button>
+                <button>Download 64 bit</button>
+            </div>
+        </div>
+        <div class="germen inner_box">Deutsch
+            <p class="main_language">German</p>
+            <div class="btn-group">
+                <button>Download 32 bit</button>
+                <button>Download 64 bit</button>
+            </div>
+        </div>
+        <div class="italian inner_box">Italiano
+            <p class="main_language">Italian</p>
+            <div class="btn-group">
+                <button>Download 32 bit</button>
+                <button>Download 64 bit</button>
+            </div>
+        </div>
+        <div class="Espanol inner_box">español
+            <p class="main_language">Spanish</p>
+            <div class="btn-group">
+                <button>Download 32 bit</button>
+                <button>Download 64 bit</button>
+            </div>
+        </div>
+        <div class="francis inner_box">français
+            <p class="main_language">French</p>
+            <div class="btn-group">
+                <button>Download 32 bit</button>
+                <button>Download 64 bit</button>
+            </div>
+        </div>
+        <div class="portugal inner_box">Português brasileiro
+            <p class="main_language">Brazilian Portuguese</p>
+            <div class="btn-group">
+                <button>Download 32 bit</button>
+                <button>Download 64 bit</button>
+            </div>
+        </div>
+        <div class="japanese inner_box">日本
+            <p class="main_language">Japanese</p>
+            <div class="btn-group">
+                <button>Download 32 bit</button>
+                <button>Download 64 bit</button>
+            </div>
+        </div>
+        <div class="korean inner_box">한국인
+            <p class="main_language">Korean</p>
+            <div class="btn-group">
+                <button>Download 32 bit</button>
+                <button>Download 64 bit</button>
+            </div>
+        </div>
+        <div class="chinese inner_box">中国
+            <p class="main_language">Chinese</p>
+            <div class="btn-group">
+                <button>Download 32 bit</button>
+                <button>Download 64 bit</button>
+            </div>
+        </div>
+        <div class="Traditional_chinese inner_box">中國
+            <p class="main_language">Traditional Chinese</p>
+            <div class="btn-group">
+                <button>Download 32 bit</button>
+                <button>Download 64 bit</button>
+            </div>
+        </div>
+
+    </main>
+</body>
+
+</html>

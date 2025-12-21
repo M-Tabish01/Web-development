@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* whole div color */
+        /* div {
+            background-color: red;
+        } */
+
+        /* class style */
+        .cyan {
+            background-color: cyan;
+        }
+
+        span {
+            background-color: yellowgreen;
+            color: red;
+        }
+
+        /* id style */
+        #orange {
+            background-color: orange;
+            color: white;
+        }
+
+        /* child selector */
+        div>p {
+            background-color: lightblue;
+        }
+
+        /* descendent selector */
+        div p {
+            background-color: aquamarine;
+        }
+
+        pre div {
+            background-color: aquamarine;
+        }
+
+        /* for removing spaces */
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        /* pseudo selector */
+        a:visited {
+            color: aquamarine;
+        }
+
+        a:link {
+            color: orange;
+        }
+
+        a:active {
+            background-color: red;
+            color: white;
+        }
+
+        a:hover {
+            background-color: rgb(4, 85, 236);
+        }
+
+        p:first-child {
+            background-color: grey;
+        }
+    </style>
+</head>
+
+<body>
+    <pre><p>
+        This is one
+    </p><p>
+        this is two
+    </p></pre>
+    <div>My name is div</div>
+    <div class="cyan">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Unde, ex.</div>
+    <span>THis is a Span</span>
+    <span id="orange">Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit, ad.</span>
+    <div>
+        Lorem ipsum dolor sit amet.
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iure!</p>
+    </div>
+    <div>
+        Lorem ipsum dolor sit amet.
+        <main>
+            <article>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iure!</p>
+            </article>
+
+        </main>
+
+    </div>
+    <pre>
+        Lorem ipsum dolor sit amet consectetur adipisicing.
+        <div>
+            Lorem ipsum dolor sit amet.
+        </div>
+    </pre>
+    <a target="_blank" href="https://www.google.com">GO TO GOOGLE</a>
+    <a target="_blank" href="https://www.facebook.com">GO TO facebook</a>
+</body>
+
+</html>

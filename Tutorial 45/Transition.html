@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{
+            background-color: burlywood;
+            width: 80vw;
+            height: 70vh;
+            border: 2px solid black;
+            padding: 20px   ;
+        }
+        .box{
+            background-color: aqua;
+            border: 2px solid red;
+            width: 60px;
+            height: 60px;
+            /* transition-property: transform;
+            transition-duration: 3s;
+            transition-timing-function: ease-in;
+            transition-delay: 1s; */
+            transition: transform 3s ease-in 0.5s;
+            transform: translateX(20vw) translateY(15vh) rotate(360deg); 
+        }
+        /* .translate{
+        transform: translateX(20vw) translateY(15vh) rotate(360deg); 
+    } */
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box translate">BOXER</div>
+        <div class="box program"></div>
+    </div>
+</body>
+</html>

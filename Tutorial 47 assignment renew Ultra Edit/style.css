@@ -1,0 +1,238 @@
+    /* Navbar CSS */
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    nav {
+        font-family: sans-serif;
+        margin: 0px 0px 45px 0px;
+        justify-content: space-around;
+        padding: 15px;
+        display: flex;
+        /* align-items: anchor-center;*/
+    }
+
+    ul {
+        /* margin: 0px 0px 0px 130px; */
+        display: flex;
+        list-style: none;
+        padding: 10px;
+    }
+
+    img {
+        width: 100px;
+        height: 35px;
+    }
+
+    li {
+        font-size: 13px;
+        padding: 0px 10px;
+        /* justify-content: right; */
+    }
+
+    /* Main contant of CSS */
+    section {
+        font-family: sans-serif;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 30px;
+        margin-bottom: 65px;
+    }
+
+    #write {
+        font-size: 30px;
+    }
+
+    #small {
+        text-align: center;
+        width: 50vw;
+    }
+
+    section button {
+        font-weight: 700;
+        color: white;
+        border-radius: 4px;
+        border: none;
+        background-color: #00b6d1;
+        padding: 10px;
+        font-size: 9px;
+    }
+
+    /*Downloading css */
+    main {
+        font-family: sans-serif;
+        display: grid;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+        /* grid-template-columns: 1fr 1fr 1fr; */
+        grid-template-areas: "ue ue ue "
+            "English germen italian"
+            "Espanol francis portugal"
+            "japanese korean chinese"
+            "Traditional_chinese Traditional_chinese Traditional_chinese ";
+    }
+
+    .ultra-edit {
+        grid-column: auto;
+        border-radius: 3px;
+        grid-area: ue;
+        background-color: rgb(248, 248, 23);
+        width: 50px;
+        height: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-weight: 900;
+        font-family: sans-serif;
+        font-style: italic;
+        font-size: 22px;
+    }
+
+    .download {
+        font-size: 19px;
+        /* padding: 20px; */
+        grid-area: ue;
+        margin: 0px 0px 0px 75px;
+
+    }
+
+    .download span {
+        font-size: 11px;
+    }
+
+    .english {
+        font-weight: bold;
+        grid-area: English;
+    }
+
+    .germen {
+        font-weight: bold;
+        grid-area: germen;
+    }
+
+    .italian {
+        font-weight: bold;
+        grid-area: italian;
+    }
+
+    .Espanol {
+        font-weight: bold;
+        grid-area: Espanol;
+    }
+
+    .francis {
+        font-weight: bold;
+        grid-area: francis;
+    }
+
+    .portugal {
+        font-weight: bold;
+        grid-area: portugal;
+    }
+
+    .japanese {
+        font-weight: bold;
+        grid-area: japanese;
+    }
+
+    .korean {
+        font-weight: bold;
+        grid-area: korean;
+    }
+
+    .chinese {
+        font-weight: bold;
+        grid-area: chinese;
+    }
+
+    .Traditional_chinese {
+        font-weight: bold;
+        grid-area: Traditional_chinese;
+    }
+
+    .inner_box {
+        border-radius: 10px;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        text-align: center;
+        /* border: 2px solid black; */
+        width: 220px;
+        background-color: #0000000f;
+        height: 105px;
+    }
+
+    .inner_box button {
+        /* width: 80px; */
+        font-size: 11px;
+    }
+
+    .btn-group {
+        display: flex;
+        /* justify-content: center; */
+        gap: 5px;
+        /* padding: 10px; */
+
+    }
+
+    .btn-group button {
+        font-weight: 600;
+        height: 30px;
+        border: 0px;
+        width: 110px;
+        border-radius: 4px;
+    }
+
+    .main_language {
+        font-size: 11px;
+    }
+
+    .btn-group button:first-child {
+        background-color: rgb(51 182 227);
+    }
+
+    .btn-group button:nth-child(2) {
+        background-color: #4dcf4d;
+    }
+
+    a {
+        color: white;
+        text-decoration: none;
+    }
+
+    @media screen and(max-width: 800px) {
+        main {
+            grid-template-columns: 1fr;
+            grid-template-areas:
+                "ue"
+                "English"
+                "germen"
+                "italian"
+                "Espanol"
+                "francis"
+                "portugal"
+                "japanese"
+                "korean"
+                "chinese"
+                "Traditional_chinese";
+            justify-content: center;
+        }
+
+        .download {
+            margin: 10px 0 20px 0;
+            /* Centered for mobile */
+            text-align: center;
+        }
+
+        .inner_box {
+            width: 90%;
+            /* Full width on mobile */
+            max-width: 350px;
+        }
+    }

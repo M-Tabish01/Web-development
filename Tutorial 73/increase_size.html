@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <div id="size">My name is Tabish!</div>
+    </div>
+    <button id="btn">Increase size</button>
+    <button id="btn_2">Decrease size</button>
+    <script>
+        let div = document.getElementById("size");
+        let button = document.getElementById("btn");
+        let button_2 = document.getElementById("btn_2");
+        let fontSize = 16;
+        div.style.fontSize = fontSize + "px";
+        button.addEventListener("click", function(){
+            div.style.color = "purple";
+            fontSize += 10;
+            div.style.fontSize = fontSize + "px";
+        });
+        
+        button_2.addEventListener("click", function(){
+            div.style.color = "red";
+            fontSize -= 10;
+            div.style.fontSize = fontSize + "px";
+        });
+    </script>
+</body>
+</html>

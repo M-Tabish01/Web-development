@@ -1,0 +1,268 @@
+@import url('https://fonts.googleapis.com/css2?family=Martel+Sans:wght@200;300;400;600;700;800;900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+body {
+    background-color: black;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+.main {
+    background-image: url(Assests/Images/bg.jpg);
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 80vh;
+    box-shadow: inset 0px 0px 45px 20px black;
+    position: relative;
+}
+
+.main .box {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 80vh;
+    opacity: 0.5;
+    background-color: black;
+}
+
+nav {
+    /* padding: 20px; */
+    width: 77vw;
+    padding-top: 30px;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: auto;
+    position: relative;
+    z-index: 10;
+}
+
+.sign-in :nth-child(1) {
+    border: 0.2px solid rgba(255, 255, 255, 0.479);
+    margin-right: 15px;
+    font-weight: 600;
+    border-radius: 6px;
+    height: 32px;
+    width: 85px;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.7);
+    cursor: pointer;
+}
+
+nav div :nth-child(2) {
+    cursor: pointer;
+    font-weight: 600;
+    border-radius: 6px;
+    height: 35px;
+    width: 75px;
+    background-color: red;
+    color: white;
+    border: none;
+}
+
+.hero {
+    padding: 30px;
+    padding-bottom: 110px;
+    height: 100%;
+    position: relative;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    gap: 10px;
+    /* overflow: auto; */
+}
+
+.hero h1 {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: bolder;
+
+}
+
+.hero> :nth-child(2) {
+    text-align: center;
+    font-size: 24px;
+    font-weight: 400px;
+    margin-bottom: 10px;
+}
+
+.hero> :nth-child(3) {
+    text-align: center;
+    font-size: 20px;
+    font-weight: 400px;
+}
+
+.email input {
+    padding: 20px;
+    border-radius: 5px;
+    border: 0.2px solid rgba(255, 255, 255, 0.479);
+    width: 350px;
+    height: 65px;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    font-size: 18px;
+
+}
+
+.email button {
+    cursor: pointer;
+    background-color: red;
+    color: rgb(255, 255, 255);
+    width: 200px;
+    height: 60px;
+    border-radius: 7px;
+    font-weight: bold;
+    font-size: 22px;
+    border: none;
+}
+
+.line {
+    background-color: #2d2d2d;
+    width: 100%;
+    height: 7px;
+}
+
+.first {
+    /* height: 40vh; */
+    width: 80vw;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+.secimg {
+    position: relative;
+}
+
+.secimg img {
+    position: relative;
+    width: 500px;
+    z-index: 3;
+}
+
+.secimg video {
+    width: 400px;
+    position: absolute;
+    top: 65px;
+    right: 58px;
+}
+
+#Enjoy :first-child {
+    font-size: 30px;
+    margin-bottom: 7px;
+}
+
+#Enjoy {
+    padding: 20px;
+}
+
+#faq {
+    text-align: center;
+    color: white;
+    margin-top: 50px;
+    margin-bottom: 10px;
+}
+
+.QA {
+    font-size: 22px;
+    display: flex;
+    /* flex-direction: column; */
+    justify-content: space-between;
+    margin: auto;
+    width: 75vw;
+    color: white;
+    background-color: #2d2d2d;
+    padding: 15px;
+    margin-bottom: 7px;
+    /* transition: all 200ms cubic-bezier(0.4, 0, 0.68, 0.06); */
+    transition: all 250ms ease-out;
+}
+
+.QA:hover {
+    /* background-color: rgb(67, 65, 65); */
+    background-color: #414141;
+    cursor: pointer;
+}
+
+.last_email {
+    margin-top: 45px;
+    color: white;
+    text-align: center;
+    /* display: flex;
+    flex-direction: column; */
+}
+
+.start {
+    margin-top: 15px;
+    margin-bottom: 70px;
+}
+
+footer {
+    width: 80vw;
+    margin: auto;
+    font-size: 14px;
+    /* margin: 50px; */
+    color: white;
+    display: flex;
+    justify-content: space-around;
+    /* margin-bottom: 50px; */
+}
+
+footer ul {
+    list-style: none;
+
+}
+
+footer ul li {
+    margin: 15px;
+    font-size: 14px;
+}
+
+.Questions>a,
+.Questions {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.Questions {
+    margin-left: 183px;
+    font-size: 14px;
+    margin-top: 50px;
+}
+
+footer a {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+}
+
+.english {
+    margin-top: 10px;
+    margin-left: 183px;
+    border: 0.2px solid rgba(255, 255, 255, 0.479);
+    margin-right: 15px;
+    font-weight: 600;
+    border-radius: 6px;
+    height: 32px;
+    width: 95px;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.7);
+    cursor: pointer;
+}
+
+p {
+    margin-left: 183px;
+    margin-top: 10px;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 10px;
+    margin-bottom: 70px;
+}

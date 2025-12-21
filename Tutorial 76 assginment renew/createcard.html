@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .card {
+            display: flex;
+            border: 2px solid black;
+            width: 100vw;
+            height: 180px;
+        }
+
+        .image img {
+            margin: 5px;
+            width: 300px;
+            border-radius: 7px;
+        }
+
+        h1 {
+            font-weight: 400;
+            margin-top: 5px;
+            color: white;
+            margin-bottom: 0;
+        }
+
+        p {
+            color: rgb(162, 157, 157);
+            margin-top: 5px;
+        }
+
+        .container {
+            background-color: black;
+            font-family: sans-serif;
+        }
+        .container:hover{
+            cursor: pointer;
+            background-color: grey;
+        }
+        .capsule{
+            position: absolute;
+            bottom: 15px;
+            z-index: 10;
+            background-color: black;
+            color: white;
+            right: 15px;
+            padding: 2px;
+            border-radius: 3px;
+            font-size: 14px;
+        }
+        .image{
+            position: relative;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="image">
+                <img src="https://i.ytimg.com/vi/tVzUXW6siu0/hqdefault.jpg?sqp=-oaymwEcCPYBEIoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLACwWOixJVrKLFindK92kYMgTcQbw"
+                    alt="">
+                <div class="capsule">31:07</div>
+            </div>
+            <div class="text">
+                <h1>Introduction to Backend | Sigma Web Dev video #2</h1>
+                <p>CodeWithHarry • 717k views • 2 months ago</p>
+            </div>
+        </div>
+    </div>
+    <button class="btn">Change accarence</button>
+    <script src="script.js"></script>
+</body>
+
+</html>

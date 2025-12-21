@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event-Bubbling</title>
+    <style>
+        .child {
+            /* background-color: antiquewhite; */
+            margin: 20px;
+            padding: 20px;
+            border: 2px solid black;
+            cursor: pointer;
+        }
+
+        .container {
+            /* background-color: yellow; */
+            margin: 20px;
+            padding: 20px;
+            cursor: pointer;
+            border: 2px solid black;
+        }
+
+        .childcontainer {
+            /* background-color: red; */
+            margin: 20px;
+            padding: 20px;
+            border: 2px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="childcontainer">
+            <div class="child">
+                Hey i am a child
+            </div>
+        </div>
+    </div>
+    <meter value="0"></meter>
+    <script>
+        let meter = document.querySelector("meter")
+        let num = 0.1
+        setInterval(() => {
+            if(num <  1){
+
+                meter.value = num 
+                num += 0.1
+               console.log(num);
+               ;
+            }
+            else{
+                window.location.href = "Events.html"
+            }
+        }, 500);
+
+
+
+
+
+
+
+        function getrandomcolor() {
+            const letters = '0123456789ABCDEF';
+            let color = '#';
+            for (let i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+            return color;
+        }
+
+        setInterval(() => {
+            document.querySelector(".container").style.backgroundColor =getrandomcolor();
+            document.querySelector(".childcontainer").style.backgroundColor =getrandomcolor();
+            document.querySelector(".child").style.backgroundColor =getrandomcolor();
+           document.body.style.backgroundColor = getrandomcolor();
+        }, 10);
+        
+        setInterval(() => {
+            
+        }, 1000);
+
+        // setTimeout(() => {
+        //     document.body.style.backgroundColor = getrandomcolor();
+
+        // }, 1000);
+
+        // cleartimeout and clearinterval use for stop executing imediatly the setinterval and settimeout
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            color: greenyellow;
+            background-color: black;
+        }
+        .container{
+            margin: 50px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div id="hacking">
+            <!-- Initializing Hacking.... 
+            Reading your files.... 
+            Password Files Detected.... 
+            Sending all password and personal files to the server.... 
+            Cleaning Up...... 
+            All Operations Performed... -->
+        </div>
+        <div id="reading"></div>
+        <div id="Password"></div>
+        <div id="personal"></div>
+        <div id="cleaning"></div>
+        <div id="operation"></div>
+    </div>
+    <script>
+        const text = document.getElementById("hacking")
+        const text_1 = document.getElementById("reading")
+        const text_2 = document.getElementById("password")
+        const text_3 = document.getElementById("personal")
+        const text_4 = document.getElementById("cleaning")
+        const text_5 = document.getElementById("operation")
+        
+
+        setTimeout(() => {
+            text.innerText = "Initializing Hacking...."
+        }, 0);
+        setTimeout(() => {
+            text_1.innerText = "Reading your files...."
+        }, 1500)
+        setTimeout(() => {
+            text_2.innerText = "Password Files Detected...."
+        }, 2000);
+        setTimeout(() => {
+            text_3.innerText = "Sending all password and personal files to the server...."
+        }, 3000);
+        setTimeout(() => {
+            text_4.innerText = "Cleaning Up......"
+        }, 4000);
+        setTimeout(() => {
+            text_5.innerText = "All Operations Performed."
+        }, 5000);
+    </script>
+</body>
+</html>

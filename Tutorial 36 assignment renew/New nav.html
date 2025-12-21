@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        :root{
+            --back-color: #71faee;
+            --text:white;
+            --nav-color:rgb(0 133 158);
+        }
+        body{
+            /* background-color: #71faee; */
+            background-color: var(--back-color);
+        }
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        nav ul{
+            /* background-color: rgb(0 133 158); */
+            list-style: none;
+            padding: 20px;
+            background-color: var(--nav-color);
+        
+        }
+        nav ul li{
+            /* border: 2px solid black; */
+            /* color: white; */
+            font-weight: bold;
+            font-size: 18px;
+            font-family: sans-serif;
+            display: inline;
+            padding: 0px 30px;
+        }
+        nav ul li a{
+            color: var(--text);
+            text-decoration: none;
+
+
+        }
+        a:hover{
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+
+            <li><a href="/">Home</a></li>
+            <li><a href="/">About</a></li>
+            <li><a href="/">Services</a></li>
+            <li><a href="/">Support</a></li>
+            <li><a href="/">Contact us</a></li>
+        
+        </ul>
+    </nav>
+</body>
+</html>

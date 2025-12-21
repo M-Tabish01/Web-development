@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Terminal Simulator</title>
+<style>
+  :root{
+    --bg:#010101;
+    --text:#66ff66;
+    --dim:#2e8b2e;
+    --mono: "SFMono-Regular", "Roboto Mono", "Menlo", "Monaco", "Courier New", monospace;
+  }
+
+  html,body{
+    height:100%;
+    margin:0;
+    background:var(--bg);
+    color:var(--text);
+    font-family:var(--mono);
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+  }
+
+  .wrap{
+    box-sizing:border-box;
+    max-width:900px;
+    margin:40px auto;
+    padding:28px;
+  }
+
+  .terminal{
+    background:linear-gradient(180deg,#000 0%, #050505 70%);
+    border-radius:8px;
+    padding:18px;
+    box-shadow:0 8px 30px rgba(0,0,0,0.7), inset 0 1px 0 rgba(255,255,255,0.02);
+    min-height:320px;
+    border:1px solid rgba(255,255,255,0.03);
+  }
+
+  .header{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    margin-bottom:12px;
+  }
+
+  .dots-btn{
+    width:12px;height:12px;border-radius:50%;
+    background:#ff5f56; box-shadow:0 0 0 4px rgba(255,95,86,0.02) inset;
+  }
+  .dots-btn.yellow{background:#ffbd2e}
+  .dots-btn.green{background:#27c93f}
+
+  .screen{
+    background:transparent;
+    color:var(--text);
+    font-size:16px;
+    line-height:1.6;
+    white-space:pre-wrap;
+    padding:12px 6px;
+    min-height:220px;
+  }
+
+  .line{
+    margin:6px 0;
+    display:flex;
+    align-items:center;
+    gap:8px;
+  }
+
+  .prompt{
+    color:var(--dim);
+    flex:0 0 auto;
+  }
+
+  .msg{
+    color:var(--text);
+    white-space:pre-wrap;
+    font-weight:500;
+  }
+
+  /* blinking dots style */
+  .dots{
+    display:inline-block;
+    width:28px;
+    text-align:left;
+    margin-left:6px;
+  }
+
+  .dot{
+    display:inline-block;
+    opacity:0;
+    transform:translateY(0);
+    color:var(--text);
+    font-weight:700;
+    margin-right:2px;
+    animation:blink 1s infinite steps(1,start);
+  }
+
+  /* stagger the three dots for a flowing ellipsis */
+  .dot:nth-child(1){ animation-delay:0s; }
+  .dot:nth-child(2){ animation-delay:0.15s; }
+  .dot:nth-child(3){ animation-delay:0.3s; }
+
+  @keyframes blink{
+    0% { opacity:0; transform:translateY(0.0em); }
+    50% { opacity:1; transform:translateY(-0.05em); }
+    100% { opacity:0; transform:translateY(0.0em); }
+  }
+
+  /* when we stop blinking we will add .stopped to remove animation and set final state */
+  .dots.stopped .dot { animation: none; opacity:1; transform:none; color:rgba(102,255,102,0.85); }
+
+  /* subtle typing fade-in for the revealed message */
+  .revealed{
+    animation:reveal 220ms ease-out;
+  }
+  @keyframes reveal {
+    from { opacity:0; transform:translateY(2px); }
+    to { opacity:1; transform:none; }
+  }
+
+  /* accessibility: respect prefers-reduced-motion */
+  @media (prefers-reduced-motion: reduce) {
+    .dot{ animation:none; opacity:1; }
+  }
+
+  /* show a footer small hint */
+  .hint{
+    color:#6b6b6b;
+    font-size:13px;
+    margin-top:12px;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="terminal" role="region" aria-label="Terminal simulator">
+    <div class="header" aria-hidden="true">
+      <div class="dots-btn"></div>
+      <div class="dots-btn yellow"></div>
+      <div class="dots-btn green"></div>
+    </div>
+
+    <div class="screen" id="screen" tabindex="0" aria-live="polite"></div>
+    <div class="hint">Terminal simulator — demo only</div>
+  </div>
+</div>
+
+<script>
+(function(){
+  // messages to show, exactly as requested
+  const messages = [
+    "initializing hacking",
+    "Reading your files",
+    "Password files detected",
+    "Sending all password and personal files to the server",
+    "Cleaning up"
+  ];
+
+  const screen = document.getElementById('screen');
+
+  // random delay between 1 and 7 seconds (inclusive)
+  function randomDelay() {
+    // return ms
+    return (Math.floor(Math.random() * 7) + 1) * 1000;
+  }
+
+  // helper: sleep
+  function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+  }
+
+  // create a line element with blinking dots
+  function createLine(text) {
+    const line = document.createElement('div');
+    line.className = 'line';
+
+    const prompt = document.createElement('span');
+    prompt.className = 'prompt';
+    prompt.textContent = '>';
+    line.appendChild(prompt);
+
+    const msg = document.createElement('span');
+    msg.className = 'msg';
+    msg.textContent = text;
+    line.appendChild(msg);
+
+    const dots = document.createElement('span');
+    dots.className = 'dots';
+    // add three dot spans so each can be staggered in CSS
+    for (let i=0;i<3;i++){
+      const d = document.createElement('span');
+      d.className = 'dot';
+      d.textContent = '.';
+      dots.appendChild(d);
+    }
+    line.appendChild(dots);
+
+    return {line, dots, msg};
+  }
+
+  // show messages sequentially
+  async function run() {
+    for (let i=0;i<messages.length;i++){
+      const text = messages[i];
+      const {line, dots, msg} = createLine(text);
+      screen.appendChild(line);
+      // ensure scroll
+      screen.scrollTop = screen.scrollHeight;
+
+      // wait a short moment to make the append visible before the blinking begins
+      await sleep(80);
+
+      // the dots are already animated via CSS; wait for a random delay
+      const ms = randomDelay();
+      await sleep(ms);
+
+      // stop the dots from blinking and keep them visible, then mark reveal
+      dots.classList.add('stopped');
+
+      // add a revealed class to give a tiny pop
+      msg.classList.add('revealed');
+
+      // remove the dots after a short moment so the line reads like a normal log
+      await sleep(350);
+      dots.remove();
+
+      // small pause before next line appears so it doesn't feel instant
+      await sleep(120);
+    }
+
+    // Optionally add a final line saying "done." (non-blinking)
+    const final = document.createElement('div');
+    final.className = 'line';
+    final.innerHTML = '<span class="prompt">&gt;</span><span class="msg revealed">All operations complete.</span>';
+    screen.appendChild(final);
+    screen.scrollTop = screen.scrollHeight;
+  }
+
+  // kick off on load
+  run();
+
+  // allow restart on click (for convenience)
+  let restarting = false;
+  document.querySelector('.terminal').addEventListener('dblclick', async () => {
+    if (restarting) return;
+    restarting = true;
+    // clear and rerun
+    screen.innerHTML = '';
+    await sleep(250);
+    run().finally(()=> restarting = false);
+  });
+
+})();
+</script>
+</body>
+</html>

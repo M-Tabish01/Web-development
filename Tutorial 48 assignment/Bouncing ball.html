@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{
+            width: 90vw;
+            height: 80vh;
+            border: 2px solid black;
+            background-color: blue;
+            position: relative;
+            padding-left: 10px;
+
+        }
+        .ball{
+            position: absolute;
+            bottom: 0;
+            width:70px;
+            height:70px;
+            border-radius: 100%;
+            background-color: red;
+            border: 1px solid black;
+            animation: x-axis 5s ease-out infinite ,y-axis 1s ease-out infinite alternate;   
+        }
+        @keyframes x-axis {
+            from{
+                left: 0;
+            }
+            to{
+                left: 90vw;
+            }
+        }
+        @keyframes y-axis {
+            from{
+                bottom: 0;
+            }
+            to{
+                bottom: 60vh;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="ball">
+        </div>
+    </div>
+    
+</body>
+</html>
