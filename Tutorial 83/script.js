@@ -16,9 +16,10 @@ async function getsongs() {
     return songs
 }
 async function main() {
+    // Get all the songs 
     let songs = await getsongs();
     console.log(songs)
-    
+    // Show all songs in the playlist 
     let songUL = document.querySelector(".songlist").getElementsByTagName("ul")[0];
     for (const song of songs) {
         songUL.innerHTML = songUL.innerHTML + `<li> 
@@ -31,20 +32,9 @@ async function main() {
                                 <span>Play Now</span>
                             </div>
                             <img class="invert" src="img/play.svg" alt="">
-                        
-        
-        
-        
-        
-        </li>`
+                        </li>`
     }
 
-    var audio = new Audio(songs[0])
-    // audio.play()
-
-    audio.addEventListener("loadeddata", ()=>{
-        console.log(audio.duration, audio.currentSrc, audio.currentTime)
-    });
 }
 
 main()
