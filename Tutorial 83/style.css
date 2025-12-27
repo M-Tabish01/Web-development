@@ -232,8 +232,9 @@ body {
     /* align-self: center; */
     height: 2px;
     width: 90%;
-    border: 2px solid black;
-    border-radius: 30px;
+    /* border: 2px solid black; */
+    background-color: black;
+    border-radius: 20px;
 }
 
 .circle{
@@ -245,4 +246,9 @@ body {
     bottom: 7px;
     cursor: pointer;
     left: 0;
+    transition: left 0.5s;
+}
+
+.songsbutton{
+    cursor: pointer;
 }
