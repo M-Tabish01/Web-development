@@ -187,8 +187,8 @@ body {
 
 .songsbutton{
     margin-bottom: 15px;
-    display: flex;
-    justify-content: center;
+    /* display: flex; */
+    /* justify-content: space-between; */
     gap: 16px;
 }
 
@@ -251,4 +251,15 @@ body {
 
 .songsbutton{
     cursor: pointer;
+}
+
+.abovebar{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.songinfo, .songtime{
+    color: black;
+    padding: 0 15px;
 }
