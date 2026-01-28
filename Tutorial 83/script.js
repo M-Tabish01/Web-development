@@ -1,5 +1,6 @@
 console.log("Lets write Javascript");
 
+let songs;
 let currentsong = new Audio();
 
 async function getsongs() {
@@ -47,7 +48,7 @@ const playmusic = (track, pause=false)=>{
 async function main() {
 
     // Get all the songs 
-    let songs = await getsongs();
+    songs = await getsongs();
     playmusic(songs[0], true)
 
     console.log(songs)
@@ -92,6 +93,44 @@ async function main() {
     currentsong.addEventListener("timeupdate", ()=>{
         document.querySelector(".songtime").innerHTML = `${secondsToMinutesSeconds(currentsong.currentTime)} / ${secondsToMinutesSeconds(currentsong.duration)}`
         document.querySelector(".circle").style.left = (currentsong.currentTime/currentsong.duration)*100 + "%"
+    })
+
+    // Add an event listener to seekbar
+    document.querySelector(".seekbar").addEventListener("click", e=>{
+        let percent = (e.offsetX/e.target.getBoundingClientRect().width) *100;
+        document.querySelector(".circle").style.left = percent + "%";
+        currentsong.currentTime = ((currentsong.duration)*percent) /100;
+    })
+
+    //button for hamburger
+
+    document.querySelector(".hamburger").addEventListener("click", ()=>{
+        document.querySelector(".left").style.left = "-1%";
+    })
+
+    document.querySelector(".close").addEventListener("click", ()=>{
+        document.querySelector(".left").style.left= "-100%";
+    })
+
+    // Add an event listener to pevious
+    previous.addEventListener("click", ()=>{
+        let index = songs.indexOf(currentsong.src.split("%5Csongs%5C").slice(-1)[0])
+        console.log(currentsong.src.split("%5Csongs%5C").slice(-1) [0])
+        
+        if((index-1) >= 0)
+        playmusic(songs[index-1])
+
+
+    })
+
+    // Add an event listener to next
+    nextsong.addEventListener("click", ()=>{
+        let index = songs.indexOf(currentsong.src.split("%5Csongs%5C").slice(-1)[0])
+        console.log(currentsong.src.split("%5Csongs%5C").slice(-1) [0])
+        
+        if((index+1) < songs.length)
+        playmusic(songs[index+1])
+        
     })
 }
 
