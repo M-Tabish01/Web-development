@@ -99,6 +99,7 @@ body {
     border-radius: 5px;
     background-color: #252525;
     position: relative;
+    transition: all 0.7s;
 }
 
 .card>* {
@@ -133,6 +134,8 @@ body {
 }
 
 .card:hover {
+    background-color: rgb(92, 91, 91);
+    cursor: pointer;
     .play {
         bottom: 100px;
         opacity: 1;
@@ -268,12 +271,13 @@ body {
     height: 25px;
 }
 
-.songinfo{
+.songinfo {
     overflow: hidden;
     text-overflow: ellipsis;
     width: 173px;
     white-space: nowrap;
 }
+
 /* 
 .songtime{
     width: 95px;
@@ -288,9 +292,33 @@ body {
     display: none;
 }
 
-#time_volume{
+#time_volume {
     display: flex;
 }
+
+.range{
+    display: none;
+    
+}
+
+.volume {
+    cursor: pointer;
+    position: relative;
+}
+
+.volume:hover .range{ 
+        
+        transform: rotate(-90deg);
+        position: fixed;
+        right: -44px;
+        bottom: 110px;
+        display: block;
+    
+        
+}
+
+
+
 
 @media (max-width: 1200px) {
     .left {
@@ -348,7 +376,10 @@ body {
         overflow: hidden;
         text-overflow: ellipsis;
     }
-    #previous, #play, #nextsong{
+
+    #previous,
+    #play,
+    #nextsong {
         width: 25px;
     }
 }
