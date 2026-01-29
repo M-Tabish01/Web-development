@@ -3,8 +3,8 @@ let currFolder;
 let currentsong = new Audio();
 
 async function getsongs(folder) {
-    let a = await fetch(`http://127.0.0.1:3000/songs/${folder}/`)
     currFolder = folder;
+    let a = await fetch(`http://127.0.0.1:3000/songs/${folder}/`)
     let respones = await a.text();
     let div = document.createElement("div")
     div.innerHTML = respones;
@@ -16,6 +16,7 @@ async function getsongs(folder) {
             songs.push(element.href.split(`%5C${folder}%5C`)[1])
         }
     } 
+    console.log(songs)
     return songs
 }
 
@@ -48,7 +49,7 @@ const playmusic = (track, pause=false)=>{
 async function main() {
 
     // Get all the songs 
-    songs = await getsongs("ncs");
+    songs = await getsongs("cs");
     playmusic(songs[0], true)
 
     // console.log(songs)
@@ -114,7 +115,7 @@ async function main() {
 
     // Add an event listener to pevious
     previous.addEventListener("click", ()=>{
-        let index = songs.indexOf(currentsong.src.split("%5Csongs%5C").slice(-1)[0])
+        let index = songs.indexOf(currentsong.src.split("%5Cncs%5C").slice(-1)[0])
         // console.log(currentsong.src.split("%5Csongs%5C").slice(-1) [0])
         
         if((index-1) >= 0)
@@ -125,7 +126,7 @@ async function main() {
 
     // Add an event listener to next
     nextsong.addEventListener("click", ()=>{
-        let index = songs.indexOf(currentsong.src.split("%5Csongs%5C").slice(-1)[0])
+        let index = songs.indexOf(currentsong.src.split("%5Cncs%5C").slice(-1)[0])
         // console.log(currentsong.src.split("%5Csongs%5C").slice(-1) [0])
         
         if((index+1) < songs.length)
@@ -137,9 +138,6 @@ async function main() {
         currentsong.volume = parseInt(e.target.value)/100
         // console.log(currentsong.volume)
     })
-
-    
-
 }
 
 main()
