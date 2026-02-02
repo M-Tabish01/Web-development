@@ -1,3 +1,4 @@
+
 let songs;
 let currFolder;
 let currentsong = new Audio();
@@ -88,19 +89,19 @@ async function displayAllbum() {
         const e = array[index];
 
         if (e.href.includes("%5Csongs")) {
-            let folder = e.href.split("%5Csongs%5C").pop()
-            console.log(e.href.split("%5Csongs%5C").pop())
+            let folder = e.href.split("%5Csongs%5C").pop().replace("/","");
+            console.log(e.href.split("%5Csongs%5C").slice(-1)[0])  
             // get metadata of the folder 
             let a = await fetch(`http://127.0.0.1:3000/songs/${folder}/info.json`)
             let respones = await a.json();
             console.log(respones)
 
             
-            cardContainer.innerHTML = cardContainer.innerHTML + `<div data-folder="ncs" class="card">
+            cardContainer.innerHTML = cardContainer.innerHTML + `<div data-folder="${folder}" class="card">
                         <div class="play">
                             <img src="img/play.svg" alt="">
                         </div>
-                        <img src="/songs/${folder}cover.jpeg" alt="">
+                        <img src="/songs/${folder}/cover.jpeg" alt="">
                         <h2>${respones.title}</h2>
                         <p class="px-10">${respones.description}</p>
                     </div>`
@@ -111,7 +112,7 @@ async function displayAllbum() {
     //Load the playlist whenever card is clicked
     Array.from(document.getElementsByClassName("card")).forEach(e => {
         e.addEventListener("click", async item => {
-            songs = await getsongs(`${item.currentTarget.dataset.folder}`)
+            await getsongs(`${item.currentTarget.dataset.folder}`)
             // item.currentTarget.dataset.folder
         })
     })
@@ -169,7 +170,7 @@ async function main() {
 
     // Add an event listener to pevious
     previous.addEventListener("click", () => {
-        let index = songs.indexOf(currentsong.src.split(`%5Csongs%5C${currFolder}%5C`).slice(-1)[0])
+        let index = songs.indexOf(currentsong.src.split(`%5C`).slice(-1)[0])
         // console.log(currentsong.src.split(`%5C${folder}%5C`).slice(-1) [0])
 
         if ((index - 1) >= 0)
@@ -180,9 +181,9 @@ async function main() {
 
     // Add an event listener to next
     nextsong.addEventListener("click", () => {
-        let index = songs.indexOf(currentsong.src.split(`%5Csongs%5C${currFolder}%5C`).slice(-1)[0])
-        // console.log(currentsong.src.split("%5Csongs%5C").slice(-1) [0])
-
+        let index = songs.indexOf(currentsong.src.split(`%5C`).slice(-1)[0])
+        console.log(currentsong.src.split(`%5C`).slice(-1)[0])
+        console.log(songs.indexOf(currentsong.src.split(`%5Csongs%5C`).slice(-1)[0]))
         if ((index + 1) < songs.length)
             playmusic(songs[index + 1])
 
@@ -203,9 +204,9 @@ async function main() {
         else{
             e.target.src = e.target.src.replace("img/mute.svg", "img/volume.svg")
             currentsong.volume = 0.1;
+            document.getElementsByTagName("input")[0].value = 10;
         }
     })
 }
 
 main()
-

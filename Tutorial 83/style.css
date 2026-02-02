@@ -4,7 +4,7 @@
     margin: 0;
     padding: 0;
     font-family: 'Roboto', sans-serif;
-    ;
+    -webkit-tap-highlight-color: transparent;
 }
 
 body {
@@ -377,9 +377,14 @@ body {
         text-overflow: ellipsis;
     }
 
+    .songinfo,
+    .songsbutton,
+    .songtime {
+        font-size: 12px;
+    }
     #previous,
     #play,
     #nextsong {
-        width: 25px;
+        width: 23px;
     }
 }
