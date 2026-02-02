@@ -198,6 +198,7 @@ async function main() {
         if(e.target.src.includes("img/volume.svg")){
             e.target.src = e.target.src.replace("img/volume.svg", "img/mute.svg")
             currentsong.volume = 0;
+            document.getElementsByTagName("input")[0].value = 0;
         }
         else{
             e.target.src = e.target.src.replace("img/mute.svg", "img/volume.svg")
